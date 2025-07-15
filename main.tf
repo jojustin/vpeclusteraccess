@@ -4,7 +4,7 @@ data "ibm_resource_group" "resource_group" {
 
 data "ibm_container_vpc_cluster" "cluster" {
   name              = "roks-vpc-cluster-jej"
-  resource_group_id = data.ibm_resource_group.resource_group.id
+  # resource_group_id = data.ibm_resource_group.resource_group.id
 }
 
 # resource "kubernetes_namespace" "example" {
