@@ -11,6 +11,5 @@ resource "kubernetes_namespace" "example" {
   metadata {
     name = "jej-eg-namespace"
   }
-  depends_on = [ ibm_container_vpc_cluster.cluster ]
 }
 
