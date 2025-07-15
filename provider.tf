@@ -23,14 +23,14 @@ provider "ibm" {
 #   resource_group_id = data.ibm_resource_group.group.id
 # }
 
-# # Init cluster config for helm and kubernetes providers
-# data "ibm_container_cluster_config" "cluster_config" {
-#   cluster_name_id   = data.ibm_container_vpc_cluster.cluster.id
-#   resource_group_id = data.ibm_resource_group.group.id
-# }
+# Init cluster config for helm and kubernetes providers
+data "ibm_container_cluster_config" "cluster_config" {
+  cluster_name_id   = data.ibm_container_vpc_cluster.cluster.id
+  resource_group_id = data.ibm_resource_group.group.id
+}
 
-# # Kubernetes provider used to create kube namespace(s)
-# provider "kubernetes" {
-#   host  = data.ibm_container_cluster_config.cluster_config.host
-#   token = data.ibm_container_cluster_config.cluster_config.token
-# }
+# Kubernetes provider used to create kube namespace(s)
+provider "kubernetes" {
+  host  = data.ibm_container_cluster_config.cluster_config.host
+  token = data.ibm_container_cluster_config.cluster_config.token
+}
